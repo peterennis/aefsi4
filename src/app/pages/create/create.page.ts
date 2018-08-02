@@ -40,7 +40,9 @@ export class CreatePage implements OnInit {
       .createSong(albumName, artistName, songDescription, songName)
       .then(
         () => {
-          this.router.navigateByUrl('');
+          loading.dismiss().then(() => {
+            this.router.navigateByUrl('');
+          });
         },
         error => {
           console.error(error);
